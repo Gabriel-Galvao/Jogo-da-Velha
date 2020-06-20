@@ -90,7 +90,7 @@ def reiniciar_variaveis():
     jogador_atual = 0
 
     # Modo 2
-    posicoes_disponiveis = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    posicoes_disponiveis = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     posicao_modo2 = 0
 
 # Modo 1 - Player vs Player
@@ -102,7 +102,7 @@ def jogador_x_jogador():
     global fim_jogo
     global contador_jogador
     global jogador_atual
-    while fim_jogo == False or rodadas > 9:
+    while fim_jogo == False or rodadas >= 9:
         tela()
         rodar_turnopvp()
         rodadas = rodadas + 1
@@ -151,7 +151,7 @@ def jogandor_vs_ia():
     global formato_jogo
     global fim_jogo
 
-    while fim_jogo == False or rodadas > 9:
+    while fim_jogo == False or rodadas >= 9:
         tela()
         turno_Player()
         vitoria()
@@ -185,7 +185,6 @@ def turno_Player():
         turno_Player()
     else:
         formato_jogo[posicao_modo2] = "X"
-    return
 
 def turno_IA():
     global posicao_modo2
@@ -197,7 +196,6 @@ def turno_IA():
         turno_IA()
     else:
         formato_jogo[posicao_modo2] = "O"
-    return
 
 # Iniciar - Roda o jogo
 def iniciar():
