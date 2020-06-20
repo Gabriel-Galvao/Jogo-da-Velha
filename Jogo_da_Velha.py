@@ -21,7 +21,6 @@ posicoes_disponiveis =[1, 2, 3, 4, 5, 6, 7, 8, 9]
 posicao_modo2 = 0
 
 # Algoritimos em Comum para Modo 1 e 2
-
 def tela():
     print(formato_jogo[0] + " | " + formato_jogo[1] + " | " + formato_jogo[2])
     print(formato_jogo[3] + " | " + formato_jogo[4] + " | " + formato_jogo[5])
@@ -160,8 +159,8 @@ def jogandor_vs_ia():
         if fim_jogo == True:
             break
         turno_IA()
-        vitoria()
         rodadas = rodadas + 1
+        vitoria()
 
     tela()
     reiniciar_variaveis()
@@ -177,8 +176,6 @@ def turno_Player():
     global posicao_modo2
     global posicoes_disponiveis
 
-
-
     print('Turno do Player')
     posicao_modo2 = int(input('Escolha uma posição ainda não ocupada entre 1 - 9 ... '))
     posicao_modo2 -= 1
@@ -186,26 +183,20 @@ def turno_Player():
     if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
         tela()
         turno_Player()
-
-    formato_jogo[posicao_modo2] = "X"
-
-
+    else:
+        formato_jogo[posicao_modo2] = "X"
     return
 
 def turno_IA():
     global posicao_modo2
     global posicoes_disponiveis
 
-
     posicao_modo2 = random.choice(posicoes_disponiveis)
-    posicoes_disponiveis.remove(posicao_modo2)
 
     if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
-        tela()
-        turno_Player()
-
-    formato_jogo[posicao_modo2] = "O"
-
+        turno_IA()
+    else:
+        formato_jogo[posicao_modo2] = "O"
     return
 
 # Iniciar - Roda o jogo
@@ -228,7 +219,3 @@ def escolher_modo():
             quit()
 
 iniciar()
-
-
-
-
