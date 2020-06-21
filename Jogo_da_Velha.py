@@ -127,21 +127,26 @@ def rodar_turnopvp():
    global jogador_atual
    global contador_jogador
 
-   if (contador_jogador % 2) == 0:
-       jogador_atual = jogador_1
-   else:
-       jogador_atual = jogador_2
+   try:
+        if (contador_jogador % 2) == 0:
+            jogador_atual = jogador_1
+        else:
+            jogador_atual = jogador_2
 
-   print('Turno de ' + jogador_atual)
-   posicao_modo1 = int(input('Escolha uma posição ainda não ocupada entre 1 - 9 ... '))
-   posicao_modo1 = (posicao_modo1 - 1)
+        print('Turno de ' + jogador_atual)
 
-   if formato_jogo[posicao_modo1] == "X" or formato_jogo[posicao_modo1] == "O":
-       tela()
-       rodar_turnopvp()
-   else:
-       formato_jogo[posicao_modo1] = jogador_atual
-   return
+        posicao_modo1 = int(input('Escolha uma posição ainda não ocupada entre 1 - 9 ... '))
+        posicao_modo1 = (posicao_modo1 - 1)
+
+        if formato_jogo[posicao_modo1] == "X" or formato_jogo[posicao_modo1] == "O":
+            tela()
+            rodar_turnopvp()
+        else:
+            formato_jogo[posicao_modo1] = jogador_atual
+   except:
+        tela()
+        rodar_turnopvp()
+
 
 # Modo 2 - IA vs Player
 def jogandor_vs_ia():
@@ -177,14 +182,18 @@ def turno_Player():
     global posicoes_disponiveis
 
     print('Turno do Player')
-    posicao_modo2 = int(input('Escolha uma posição ainda não ocupada entre 1 - 9 ... '))
-    posicao_modo2 -= 1
-
-    if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
+    try:
+        posicao_modo2 = int(input('Escolha uma posição ainda não ocupada entre 1 - 9 ... '))
+        posicao_modo2 -= 1
+        if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
+            tela()
+            turno_Player()
+        else:
+            formato_jogo[posicao_modo2] = "X"
+    except:
         tela()
         turno_Player()
-    else:
-        formato_jogo[posicao_modo2] = "X"
+
 
 def turno_IA():
     global posicao_modo2
@@ -192,10 +201,13 @@ def turno_IA():
 
     posicao_modo2 = random.choice(posicoes_disponiveis)
 
-    if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
+    try:
+        if formato_jogo[posicao_modo2] == "X" or formato_jogo[posicao_modo2] == "O":
+            turno_IA()
+        else:
+            formato_jogo[posicao_modo2] = "O"
+    except:
         turno_IA()
-    else:
-        formato_jogo[posicao_modo2] = "O"
 
 # Iniciar - Roda o jogo
 def iniciar():
