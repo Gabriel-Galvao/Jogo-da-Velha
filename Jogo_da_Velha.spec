@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['Jogo_da_Velha'],
+a = Analysis(['Jogo_da_Velha.py'],
              pathex=['C:\\Users\\Jabriel Johnson\\Documents\\Estudos\\Programação\\Projetos - Python\\Jogo da Velha'],
              binaries=[],
              datas=[],

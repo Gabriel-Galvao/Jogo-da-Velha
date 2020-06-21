@@ -1,5 +1,5 @@
-('C:\\Users\\Jabriel Johnson\\Desktop\\Jogo da '
- 'Velha\\build\\Jogo_da_Velha\\PYZ-00.pyz',
+('C:\\Users\\Jabriel Johnson\\Documents\\Estudos\\Programação\\Projetos - '
+ 'Python\\Jogo da Velha\\build\\Jogo_da_Velha\\PYZ-00.pyz',
  [('multiprocessing.popen_fork',
    'c:\\users\\jabriel '
    'johnson\\appdata\\local\\programs\\python\\python38\\lib\\multiprocessing\\popen_fork.py',
